@@ -1,4 +1,5 @@
 import {Link, useNavigate} from "react-router-dom"
+import "../Style/Navbar.css"
 
 export default function Navbar(){
 
@@ -12,31 +13,31 @@ navigate("/")
 }
 
 return (
-
-<nav style={{
-display: "flex",
-justifyContent: "space-between",
-padding: "15px",
-borderBottom: "1px solid #ccc"
-}}>
-<Link to="/">
+<nav className="navbar">
+<div className="nav-container">
+<Link to="/" className="nav-logo">
+<span className="logo-dot"></span>
 <b>ServiceHub</b>
 </Link>
-<div style={{display:"flex", gap:"10px"}}>
-{!token && (
+
+<div className="nav-links">
+{!token ? (
 <>
-<Link to="/login">Login</Link>
-<Link to="/register">Register</Link>
+<Link to="/login" className="nav-item">Login</Link>
+<Link to="/register" className="nav-item nav-btn-primary">Register</Link>
 </>
-)}
-{token && (
+) : (
 <>
-<Link to="/my-bookings">My Bookings</Link>
-<Link to="/provider">Provider Dashboard</Link>
-<button onClick={logout}>Logout</button>
+<Link to="/my-bookings" className="nav-item">My Bookings</Link>
+<Link to="/provider" className="nav-item">Provider Dashboard</Link>
+<button onClick={logout} className="nav-logout-btn">
+Logout
+</button>
 </>
 )}
 </div>
+</div>
 </nav>
-)}
+);
+};
 

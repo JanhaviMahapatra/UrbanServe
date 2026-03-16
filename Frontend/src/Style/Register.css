@@ -1,0 +1,105 @@
+:root {
+  /* Matching your existing Organic Earth palette */
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  --input-bg: #FDF9F0; /* Slightly darker than background for contrast */
+  
+  --shadow-sm: 0 2px 4px rgba(45, 36, 36, 0.05);
+  --shadow-lg: 0 20px 40px rgba(45, 36, 36, 0.08);
+  --radius-md: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Wrapper to center the form on the screen */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+/* The Form Container */
+.register-form {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 400px; /* Slightly wider for better breathing room */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(95, 113, 97, 0.1);
+  animation: formAppear 0.6s ease-out;
+}
+
+@keyframes formAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input & Select Styling */
+.register-form input, 
+.register-form select {
+  background: var(--input-bg);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  color: var(--text-espresso);
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+}
+
+/* Placeholder Styling */
+.register-form input::placeholder {
+  color: rgba(45, 36, 36, 0.4);
+}
+
+/* Focus States - The "Glow" effect */
+.register-form input:focus, 
+.register-form select:focus {
+  background: var(--white);
+  border-color: var(--accent-sage);
+  box-shadow: 0 0 0 4px rgba(95, 113, 97, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Custom Select Arrow */
+.register-form select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F7161' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+/* Submit Button */
+.btn-submit {
+  background: var(--accent-sage);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(95, 113, 97, 0.2);
+}
+
+.btn-submit:hover {
+  background: var(--text-espresso);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 36, 36, 0.15);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}

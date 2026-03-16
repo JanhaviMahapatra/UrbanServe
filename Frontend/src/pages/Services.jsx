@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react"
 import {useNavigate} from "react-router-dom"
+import "../Style/Services.css"
 
 
 import api from "../services/api"
@@ -19,24 +20,27 @@ fetchServices()
 },[])
 
 return(
-<div>
+<div className="container">
 <h2>Available services</h2>  
 
-<button onClick={() => navigate("/my-bookings")} style={{marginBottom:20}}>
+<button className="btn-nav" onClick={() => navigate("/my-bookings")}>
 My Bookings
 </button>
 
-{services.map((service)=>(
-<div key={service.id}>
+<div className="services-grid">
+{services.map((service) => (
+<div key={service.id} className="service-card">
 <strong>{service.name}</strong>
 <p>{service.description}</p>
-<p>₹{service.basePrice}</p>
-<button onClick={()=>navigate(`/booking/${service.id}`)}>Book Now</button>
+<p className="price">₹{service.basePrice}</p>
+<button className="btn-book" onClick={() => navigate(`/booking/${service.id}`)}>
+Book Now
+</button>
 </div> 
 ))}
-
 </div>
-)
-}
+</div>
+);
+};
 
 export default Services

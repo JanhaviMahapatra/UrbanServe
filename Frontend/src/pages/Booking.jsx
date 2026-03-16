@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../Services/api";
+import "../Style/Booking.css"
 
 export default function Booking(){
 const[date,setDate]=useState("") 
@@ -59,20 +60,33 @@ rzp.open()
 }
 
 return(
-<div>
+<div className="booking-container">
+<div className="booking-card">
 <h1>Book Service</h1>
+
+<div className="input-group">
+<label>Select Date</label>
 <input
 type="date"
-onChange={(e)=>setDate(e.target.value)}
+onChange={(e) => setDate(e.target.value)}
 />
-<select onChange={(e)=>setTimeSlot(e.target.value)}>
-<option>Select time</option>
-<option>10AM-11AM</option>
-<option>12PM-1PM</option>
-<option>3PM-4PM</option>
-<option>5PM-6PM</option>
-</select>
+</div>
 
-<button onClick={handleBooking}>Book & Pay</button>
-</div>  
-)}
+<div className="input-group">
+<label>Available Slots</label>
+<select onChange={(e) => setTimeSlot(e.target.value)}>
+<option value="">Choose a time...</option>
+<option value="10-11">10:00 AM - 11:00 AM</option>
+<option value="12-1">12:00 PM - 01:00 PM</option>
+<option value="3-4">03:00 PM - 04:00 PM</option>
+<option value="5-6">05:00 PM - 06:00 PM</option>
+</select>
+</div>
+
+<button className="btn-pay" onClick={handleBooking}>
+Confirm & Pay
+</button>
+</div>
+</div>
+);
+};

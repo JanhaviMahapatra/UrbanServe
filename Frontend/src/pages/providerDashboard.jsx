@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import api from "../services/api"
 import { useNavigate } from "react-router-dom"
+import "../Style/ProviderDashboard.css"
 
 export default function ProviderDashboard(){
 
@@ -47,49 +48,59 @@ checkProfile()
 
 
 return(
-<div>
+<div className="dashboard-wrapper">
+<div className="dashboard-header">
 <h1>Provider Dashboard</h1>
 
-<button onClick={()=>navigate("/add-service")}>
-Add Service
+<div className="action-bar">
+<button className="btn-secondary" onClick={() => navigate("/add-service")}>
++ Add Service
 </button>
-
-<button onClick={() => navigate("/my-services")}>
+<button className="btn-secondary" onClick={() => navigate("/my-services")}>
 My Services
 </button>
-
-
-<button onClick={() => navigate("/create-provider-profile")}>
-Create Provider Profile
+<button className="btn-secondary" onClick={() => navigate("/create-provider-profile")}>
+Edit Profile
 </button>
+</div>
+</div>
 
-{bookings.length === 0 && <p>No bookings yet</p>}
-{bookings.map((booking)=>(
-<div key={booking.id} style={{border:"1px solid gray", margin:"10px", padding:"10px"}}>
+{bookings.length === 0 ? (
+<div className="empty-msg">No bookings requested yet.</div>
+) : (
+<div className="booking-grid">
+{bookings.map((booking) => (
+<div key={booking.id} className="provider-card">
 <h3>{booking.service.name}</h3>
-<p>Customer: {booking.user.name}</p>
-<p>Date: {new Date(booking.date).toLocaleDateString()}</p>
-<p>Time: {booking.timeSlot}</p>
-<p>Status: {booking.status}</p>
-<p>Payment: {booking.paymentStatus}</p>
-{booking.status === "PENDING"&&(
+
+<div className="info-row"><strong>Customer:</strong> {booking.user.name}</div>
+<div className="info-row"><strong>Date:</strong> {new Date(booking.date).toLocaleDateString()}</div>
+<div className="info-row"><strong>Time:</strong> {booking.timeSlot}</div>
+<div className="info-row"><strong>Status:</strong> {booking.status}</div>
+<div className="info-row"><strong>Payment:</strong> {booking.paymentStatus}</div>
+
+<div className="card-actions">
+{booking.status === "PENDING" && (
 <>
-<button onClick={()=>updateStatus(booking.id,"accept")}>
+<button className="btn-action btn-accept" onClick={() => updateStatus(booking.id, "accept")}>
 Accept
 </button>
-
-<button onClick={()=>updateStatus(booking.id,"reject")}>
+<button className="btn-action btn-reject" onClick={() => updateStatus(booking.id, "reject")}>
 Reject
 </button>
 </>
 )}
 
 {booking.status === "ACCEPTED" && (
-<button onClick={()=>updateStatus(booking.id,"complete")}>
+<button className="btn-action btn-complete" onClick={() => updateStatus(booking.id, "complete")}>
 Mark Completed
 </button>
 )}
 </div>
+</div>
 ))}
 </div>
 )}
+</div>
+);
+};

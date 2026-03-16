@@ -1,0 +1,123 @@
+:root {
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  
+  --radius-xl: 24px;
+  --shadow-deep: 0 20px 50px rgba(95, 113, 97, 0.12);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Page Layout */
+.booking-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 40px 20px;
+}
+
+/* Booking Card */
+.booking-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-deep);
+  width: 100%;
+  max-width: 450px;
+  text-align: left;
+  border: 1px solid rgba(45, 36, 36, 0.03);
+  position: relative;
+}
+
+.booking-card h1 {
+  font-size: 1.8rem;
+  color: var(--text-espresso);
+  margin-bottom: 30px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--bg-cream);
+  padding-bottom: 15px;
+}
+
+/* Input Groupings */
+.input-group {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-sage);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Date & Select Styling */
+.booking-card input[type="date"],
+.booking-card select {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1.5px solid #F0EDE4;
+  background-color: #FDFBFA;
+  color: var(--text-espresso);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition);
+  outline: none;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.booking-card input:focus,
+.booking-card select:focus {
+  border-color: var(--accent-sage);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(95, 113, 97, 0.1);
+}
+
+/* Action Button */
+.btn-pay {
+  width: 100%;
+  background: var(--accent-sage);
+  color: var(--white);
+  border: none;
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-pay:hover {
+  background: var(--text-espresso);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(45, 36, 36, 0.15);
+}
+
+.btn-pay:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Subtle background accent */
+.booking-card::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--accent-terracotta) 0%, transparent 70%);
+  opacity: 0.05;
+  z-index: -1;
+}

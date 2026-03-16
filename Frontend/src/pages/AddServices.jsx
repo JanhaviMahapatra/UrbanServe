@@ -1,6 +1,7 @@
 import { useState } from "react"
 import api from "../services/api"
 import {useNavigate} from "react-router-dom"
+import "../Style/AddServices.css"
 
 export default function AddService(){
 const navigate=useNavigate()
@@ -42,36 +43,48 @@ alert("Failed to add service")
 }
 
 return(
-<div>
+<div className="creation-wrapper">
+<div className="service-form-card">
 <h1>Add Service</h1>
 
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} className="styled-form">
 
+<div className="field-group">
 <input
 name="name"
-placeholder="Service name"
+placeholder="What is your service called?"
 value={form.name}
 onChange={handleChange}
+required
 />
+</div>
 
+<div className="field-group">
 <input
 name="description"
-placeholder="Description"
+placeholder="Describe what you offer..."
 value={form.description}
 onChange={handleChange}
+required
 />
+</div>
 
+<div className="field-group">
 <input
 name="basePrice"
-placeholder="Price"
+placeholder="Base Price (₹)"
 type="number"
 value={form.basePrice}
 onChange={handleChange}
+required
 />
+</div>
 
-<button type="submit">
-Add Service
+<button type="submit" className="btn-create-service">
+Publish Service
 </button>
 </form>
 </div>
-)}
+</div>
+);
+};

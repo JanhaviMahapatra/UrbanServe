@@ -1,0 +1,121 @@
+:root {
+--bg-cream: #FFFBF0;
+--text-espresso: #2D2424;
+--accent-sage: #5F7161;
+--accent-terracotta: #E16428;
+--white: #ffffff;
+
+--shadow-card: 0 4px 20px rgba(45, 36, 36, 0.04);
+--radius-lg: 16px;
+--transition-fast: all 0.2s ease;
+}
+
+/* Page Container */
+.dashboard-container {
+max-width: 800px;
+margin: 0 auto;
+padding: 40px 20px;
+}
+
+.dashboard-container h1 {
+font-size: 2.2rem;
+color: var(--text-espresso);
+margin-bottom: 30px;
+font-weight: 800;
+}
+
+/* Empty State */
+.empty-msg {
+text-align: center;
+padding: 60px;
+background: rgba(95, 113, 97, 0.05);
+border-radius: var(--radius-lg);
+color: var(--accent-sage);
+font-style: italic;
+}
+
+/* Booking Card Grid */
+.booking-list {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.booking-item {
+background: var(--white);
+border-radius: var(--radius-lg);
+padding: 24px;
+box-shadow: var(--shadow-card);
+border: 1px solid rgba(45, 36, 36, 0.05);
+display: grid;
+grid-template-columns: 1fr auto;
+align-items: center;
+gap: 20px;
+transition: var(--transition-fast);
+}
+
+.booking-item:hover {
+transform: scale(1.01);
+box-shadow: 0 8px 30px rgba(45, 36, 36, 0.08);
+border-color: var(--accent-sage);
+}
+
+/* Left Section: Info */
+.booking-info h2 {
+margin: 0 0 8px 0;
+font-size: 1.4rem;
+color: var(--text-espresso);
+}
+
+.provider-name {
+display: block;
+color: var(--accent-sage);
+font-weight: 600;
+margin-bottom: 12px;
+}
+
+.booking-details {
+display: flex;
+gap: 20px;
+font-size: 0.9rem;
+color: rgba(45, 36, 36, 0.7);
+}
+
+/* Right Section: Badges */
+.status-container {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: 8px;
+}
+
+/* Badge System */
+.badge {
+padding: 6px 14px;
+border-radius: 100px;
+font-size: 0.75rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.status-badge {
+background: rgba(95, 113, 97, 0.1);
+color: var(--accent-sage);
+}
+
+.payment-badge {
+background: rgba(225, 100, 40, 0.1);
+color: var(--accent-terracotta);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+.booking-item {
+grid-template-columns: 1fr;
+}
+.status-container {
+flex-direction: row;
+align-items: flex-start;
+}
+}

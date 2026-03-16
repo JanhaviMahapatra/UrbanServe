@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import api from "../services/api"
+import "../Style/MyServices.css"
 
 export default function MyServices() {
 const[services,setServices]=useState([])
@@ -26,18 +27,33 @@ alert("Delete failed")
 }}
 
 return(
-<div>
+<div className="services-manage-container">
 <h1>My Services</h1>
-{services.length === 0 && <p>No services yet</p>}
+
+{services.length === 0 ? (
+<div className="no-services">
+<p>No services yet. Start by adding one to your profile.</p>
+</div>
+) : (
+<div className="service-manage-list">
 {services.map(service => (
-<div key={service.id} style={{border:"1px solid gray", padding:"10px", margin:"10px"}}>
+<div key={service.id} className="service-item-card">
+<div className="service-item-content">
 <h3>{service.name}</h3>
 <p>{service.description}</p>
-<p>₹{service.basePrice}</p>
-<button onClick={() => deleteService(service.id)}>
+<span className="service-item-price">₹{service.basePrice}</span>
+</div>
+
+<button 
+className="btn-delete" 
+onClick={() => deleteService(service.id)}
+>
 Delete
 </button>
 </div>
 ))}
 </div>
 )}
+</div>
+);
+};

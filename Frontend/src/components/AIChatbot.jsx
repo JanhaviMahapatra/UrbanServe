@@ -1,6 +1,7 @@
 import { useState } from "react"
 import api from "../services/api"
 import ReactMarkdown from "react-markdown"
+import "../Style/AIChatbot.css"
 
 export default function AIChatbot(){
 
@@ -34,85 +35,60 @@ setMessages((prev)=>[
 
 return(
 <>
-<button
+{/* The Floating Action Button (FAB) */}
+<button 
+className={`chat-toggle ${open ? 'active' : ''}`} 
 onClick={() => setOpen(!open)}
-style={{
-position: "fixed",
-bottom: "20px",
-right: "20px",
-borderRadius: "50%",
-width: "60px",
-height: "60px",
-fontSize: "20px"
-}}
+aria-label="Toggle Assistant"
 >
-💬
+{open ? "✕" : "💬"}
 </button>
 
-
 {open && (
-
-<div
-style={{
-position: "fixed",
-bottom: "90px",
-right: "20px",
-width: "300px",
-height: "400px",
-background: "white",
-border: "1px solid #ccc",
-display: "flex",
-flexDirection: "column"
-}}
->
-
-<div
-style={{
-padding: "10px",
-borderBottom: "1px solid #ddd",
-fontWeight: "bold"
-}}
->
-AI Assistant
+<div className="chat-window">
+{/* Header with Status Indicator */}
+<div className="chat-header">
+<div className="status-dot"></div>
+<div className="header-info">
+<span className="title">AI Assistant</span>
+<span className="subtitle">Online & Grounded</span>
+</div>
 </div>
 
-<div
-style={{
-flex: 1,
-overflowY: "auto",
-padding: "10px"
-}}
->
-
+{/* Scrollable Message Thread */}
+<div className="message-list">
+{messages.length === 0 && (
+<p className="chat-empty-state">How can I help you with your services today?</p>
+)}
 {messages.map((msg, index) => (
-
-<div key={index}
-style={{
-textAlign: msg.role === "user" ? "right" : "left",
-margin: "5px 0"
-}}
+<div 
+key={index} 
+className={`msg-wrapper ${msg.role === "user" ? "user-row" : "ai-row"}`}
 >
-<ReactMarkdown>{msg.text}</ReactMarkdown>  
+<div className="msg-bubble">
+<ReactMarkdown>{msg.text}</ReactMarkdown>
 </div>
-
+</div>
 ))}
-
 </div>
 
-<div style={{ display: "flex" }}>
-
+{/* Input Field Area */}
+<div className="chat-footer">
 <input
 value={input}
 onChange={(e) => setInput(e.target.value)}
-style={{ flex: 1 }}
-placeholder="Ask something..."
+onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+placeholder="Type a message..."
+autoFocus
 />
-
-<button onClick={sendMessage}>
-Send
+<button className="btn-send-icon" onClick={sendMessage}>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+<path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+</svg>
 </button>
 </div>
 </div>
 )}
 </>
-)}
+);
+};

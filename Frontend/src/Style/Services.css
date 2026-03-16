@@ -1,0 +1,147 @@
+:root {
+  /* Color Palette */
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  
+  /* Shadows & Radius */
+  --shadow-soft: 0 10px 30px rgba(45, 36, 36, 0.05);
+  --shadow-hover: 0 20px 40px rgba(45, 36, 36, 0.1);
+  --radius: 16px;
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Global Styles */
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-espresso);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+/* Main Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Heading */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation Button (My Bookings) */
+.btn-nav {
+  background: transparent;
+  border: 1.5px solid var(--accent-sage);
+  color: var(--accent-sage);
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 40px;
+}
+
+.btn-nav:hover {
+  background: var(--accent-sage);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(95, 113, 97, 0.2);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Service Card */
+.service-card {
+  background: var(--white);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(45, 36, 36, 0.05);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-sage);
+}
+
+.service-card strong {
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  color: rgba(45, 36, 36, 0.7);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Price Tag */
+.price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-terracotta);
+  margin-bottom: 20px;
+}
+
+/* Primary Action Button */
+.btn-book {
+  background: var(--text-espresso);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-book:hover {
+  background: var(--accent-terracotta);
+  transform: scale(1.02);
+}
+
+.btn-book:active {
+  transform: scale(0.98);
+}
+
+/* Subtle Background Glow */
+.container::before {
+  content: '';
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(95, 113, 97, 0.1) 0%, transparent 70%);
+  z-index: -1;
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-40px, 40px); }
+}

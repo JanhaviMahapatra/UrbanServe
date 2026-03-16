@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react";
-import api from "../Services/api";
+import api from "../services/api";
+import "../Style/UserBookings.css"
 
 
 export default function userBookings(){
@@ -18,19 +19,35 @@ fetchBookings()
 },[]);
 
 return(
-<div>
+<div className="dashboard-container">
 <h1>My bookings</h1>
-{bookings.length===0 && <p>No bookings yet.</p>}
-{bookings.map((booking)=>(
-<div key={booking.id} style={{display:"grid",border:"1px solid black",margin:"10px",padding:"10px"}}>
+
+{bookings.length === 0 ? (
+<p className="empty-msg">No bookings yet. Your future appointments will appear here.</p>
+) : (
+<div className="booking-list">
+{bookings.map((booking) => (
+<div key={booking.id} className="booking-item">
+
+<div className="booking-info">
 <h2>{booking.service.name}</h2>
-<strong>{booking.provider.user.name}</strong>
-<strong>Date: {new Date(booking.date).toLocaleDateString()}</strong>
-<strong>{booking.timeSlot}</strong>
-<strong>{booking.status}</strong>
-<strong>{booking.paymentStatus}</strong>
-</div>  
+<span className="provider-name">with {booking.provider.user.name}</span>
+
+<div className="booking-details">
+<span>📅{new Date(booking.date).toLocaleDateString()}</span>
+<span>⏰{booking.timeSlot}</span>
+</div>
+</div>
+
+<div className="status-container">
+<span className="badge status-badge">{booking.status}</span>
+<span className="badge payment-badge">{booking.paymentStatus}</span>
+</div>
+
+</div> 
 ))}
 </div>
-)
-}
+)}
+</div>
+);
+};

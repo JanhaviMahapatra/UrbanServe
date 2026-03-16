@@ -1,0 +1,125 @@
+:root {
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  --success-green: #4e6e5d;
+  --danger-red: #a34c4c;
+  
+  --radius-lg: 16px;
+  --shadow-subtle: 0 4px 12px rgba(45, 36, 36, 0.03);
+  --shadow-glow: 0 10px 30px rgba(95, 113, 97, 0.12);
+}
+
+/* Main Layout */
+.dashboard-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-espresso);
+}
+
+/* Action Button Bar */
+.action-bar {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: var(--white);
+  border: 1.5px solid rgba(45, 36, 36, 0.1);
+  color: var(--text-espresso);
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-sage);
+  color: var(--accent-sage);
+  transform: translateY(-2px);
+}
+
+/* Booking Cards Container */
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.provider-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(45, 36, 36, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.provider-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+}
+
+.provider-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.25rem;
+  color: var(--text-espresso);
+  border-bottom: 1px solid var(--bg-cream);
+  padding-bottom: 10px;
+}
+
+.info-row {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: rgba(45, 36, 36, 0.8);
+}
+
+.info-row strong {
+  color: var(--text-espresso);
+}
+
+/* Booking Action Buttons */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-accept { background: var(--accent-sage); color: white; }
+.btn-reject { background: #f2ede4; color: var(--danger-red); }
+.btn-complete { background: var(--text-espresso); color: white; width: 100%; }
+
+.btn-action:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,100 @@
+:root {
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  
+  --radius-xl: 32px;
+  --radius-md: 14px;
+  --transition-elastic: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Center the creation card */
+.creation-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+}
+
+.service-form-card {
+  background: var(--white);
+  padding: 50px;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 40px 80px rgba(45, 36, 36, 0.07);
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(95, 113, 97, 0.05);
+}
+
+.service-form-card h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-espresso);
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+/* Form Layout */
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Specialized Input Styles */
+.styled-form input {
+  background: #F9F8F4;
+  border: 2px solid transparent;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--text-espresso);
+  transition: var(--transition-elastic);
+  outline: none;
+}
+
+.styled-form input:focus {
+  background: var(--white);
+  border-color: var(--accent-sage);
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(95, 113, 97, 0.08);
+}
+
+/* Numeric Input Specifics */
+.styled-form input[type="number"] {
+  font-family: 'Courier New', monospace; /* Professional 'price' feel */
+  font-weight: 700;
+  color: var(--accent-terracotta);
+}
+
+/* Submit Button */
+.btn-create-service {
+  background: var(--text-espresso);
+  color: var(--white);
+  border: none;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: var(--transition-elastic);
+}
+
+.btn-create-service:hover {
+  background: var(--accent-sage);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(95, 113, 97, 0.2);
+}
+
+.btn-create-service:active {
+  transform: scale(0.96);
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import "../Style/Login.css"
 
 export default function Login(){
 const navigate=useNavigate()
@@ -39,25 +40,38 @@ alert(error.response?.data?.message || "Login error")
 }
 
 return(
-<div>
-<h2>Login</h2>
-<form onSubmit={handleSubmit} style={{display:"grid",gap:10,maxWidth:300}}>
+<div className="login-page">
+<div className="login-card">
+<h2>Welcome back</h2>
+
+<form onSubmit={handleSubmit} className="login-form">
 <input
-type="text"
+type="email"
 name="email"
 value={form.email}
-placeholder="Enter email"
+placeholder="Email address"
 onChange={handleChange}
+required
 />
+
 <input
 type="password"
 name="password"
 value={form.password}
-placeholder="Enter password"
+placeholder="Password"
 onChange={handleChange}
+required
 />
-<button type="submit">Login</button>
+
+<button type="submit" className="btn-login">
+Sign In
+</button>
 </form>
+
+<div className="login-footer">
+<p>Don't have an account? <a href="/register" className="login-link">Create one</a></p>
 </div>
-)
-}
+</div>
+</div>
+);
+};

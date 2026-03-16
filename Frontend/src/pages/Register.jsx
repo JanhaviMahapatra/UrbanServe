@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../Services/api";
+import "../Style/Register.css"
 
 function Register(){
 const navigate=useNavigate()
@@ -36,38 +37,48 @@ alert(error.response?.data?.message || "Register error")
 }
 
 return(
-<div>
-<form onSubmit={handleSubmit} style={{display:"grid",gap:10,maxWidth:300}}>
+<div className="auth-wrapper">
+<form onSubmit={handleSubmit} className="register-form">
+<h3 style={{ margin: '0 0 10px 0', color: 'var(--text-espresso)' }}>Create Account</h3>
+
 <input 
 type="text"  
 name="name"
 value={form.name}
-placeholder="Enter name"
+placeholder="Full Name"
 onChange={handleChange}
+required
 />
+
 <input 
 type="email"  
 name="email"
 value={form.email}
-placeholder="Enter email"
+placeholder="Email Address"
 onChange={handleChange}
+required
 />
+
 <input 
 type="password"  
 name="password"
 value={form.password}
-placeholder="Enter password"
+placeholder="Create Password"
 onChange={handleChange}
+required
 />
 
 <select name="role" value={form.role} onChange={handleChange}>
-<option value="USER">User</option>
-<option value="PROVIDER">Provider</option>
+<option value="USER">Join as User</option>
+<option value="PROVIDER">Join as Provider</option>
 </select>
-<button type="submit">Register</button>
+
+<button type="submit" className="btn-submit">
+Register
+</button>
 </form>
 </div>
-)
-}
+  );
+  };
 
-export default Register
+  export default Register

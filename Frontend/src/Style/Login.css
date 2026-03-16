@@ -1,0 +1,113 @@
+:root {
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  
+  --radius-lg: 20px;
+  --shadow-luxe: 0 25px 50px -12px rgba(45, 36, 36, 0.1);
+  --transition-smooth: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Centering layout */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 20px;
+}
+
+/* Login Card */
+.login-card {
+  background: var(--white);
+  padding: 48px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-luxe);
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid rgba(95, 113, 97, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading */
+.login-card h2 {
+  font-size: 2rem;
+  color: var(--text-espresso);
+  margin-bottom: 30px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* Input Fields */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  background: #F9F7F2;
+  border: 2px solid transparent;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text-espresso);
+  transition: var(--transition-smooth);
+}
+
+.login-form input:focus {
+  background: var(--white);
+  border-color: var(--accent-terracotta); /* Terracotta for Login for a warmer "active" feel */
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(225, 100, 40, 0.1);
+}
+
+/* Animated Login Button */
+.btn-login {
+  background: var(--text-espresso);
+  color: var(--white);
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login:hover {
+  background: var(--accent-terracotta);
+  letter-spacing: 1px;
+}
+
+.btn-login:active {
+  transform: scale(0.96);
+}
+
+/* Subtle Link Styling */
+.login-footer {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: rgba(45, 36, 36, 0.6);
+}
+
+.login-link {
+  color: var(--accent-sage);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}

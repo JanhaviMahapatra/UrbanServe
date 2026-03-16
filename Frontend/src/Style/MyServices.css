@@ -1,0 +1,103 @@
+:root {
+  --bg-cream: #FFFBF0;
+  --text-espresso: #2D2424;
+  --accent-sage: #5F7161;
+  --accent-terracotta: #E16428;
+  --white: #ffffff;
+  
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 10px 25px rgba(45, 36, 36, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Page Container */
+.services-manage-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.services-manage-container h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-espresso);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* Service Row Styling */
+.service-manage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-item-card {
+  background: var(--white);
+  padding: 24px 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(45, 36, 36, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.service-item-card:hover {
+  transform: translateX(8px); /* Smooth slide-in effect on hover */
+  border-color: var(--accent-sage);
+}
+
+/* Content Area */
+.service-item-content h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.3rem;
+  color: var(--text-espresso);
+}
+
+.service-item-content p {
+  margin: 0;
+  color: rgba(45, 36, 36, 0.6);
+  font-size: 0.95rem;
+}
+
+.service-item-price {
+  display: block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--accent-sage);
+}
+
+/* Danger Action Button */
+.btn-delete {
+  background: transparent;
+  color: var(--accent-terracotta);
+  border: 1.5px solid rgba(225, 100, 40, 0.2);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-delete:hover {
+  background: var(--accent-terracotta);
+  color: var(--white);
+  box-shadow: 0 8px 16px rgba(225, 100, 40, 0.2);
+}
+
+.btn-delete:active {
+  transform: scale(0.95);
+}
+
+/* Empty State */
+.no-services {
+  padding: 40px;
+  background: rgba(45, 36, 36, 0.02);
+  border: 2px dashed rgba(45, 36, 36, 0.1);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--accent-sage);
+}
